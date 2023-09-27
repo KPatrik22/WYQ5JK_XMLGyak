@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT mozi (film*, rendezo+, szinesz+, iro+)>
+	<!ELEMENT film (#PCDATA) >
+	<!ELEMENT rendezo (#PCDATA) >
+	<!ELEMENT szinesz (#PCDATA) >
+	<!ELEMENT iro (#PCDATA) >
+
+	<!ATTLIST film id ID #REQUIRED >
+	<!ATTLIST film mufaj CDATA (horror | vigjatek | drama) "horror">
