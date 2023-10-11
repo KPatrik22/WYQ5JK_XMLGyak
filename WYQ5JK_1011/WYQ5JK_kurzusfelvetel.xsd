@@ -1,0 +1,17 @@
+<xml version="1.0" encoding="UTF-8"?>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    
+    <xs:simpleType name=”sajatTipus”>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="hnev" type="xs:string" />
+    <xs:element name="szulev" type="xs:string" />
+    <xs:element name="nev" type="xs:string" />
+    <xs:element name="baratja" type="xs:string" />
+    <xs:element name="szuletett" type="xs:string" />
+    <xs:element name="jellemzes" type="xs:string" />
+    <xs:attribute name="isbn" type="xs:string" />
