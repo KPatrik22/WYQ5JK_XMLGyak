@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<class>
+    <student id="01">
+        <keresztnev>Pál</keresztnev>
+        <vezeteknev>Kala</vezeteknev>
+        <becenev>Palika</becenev>
+        <kor>21</kor>
+    </student>
+
+    <student id="02">
+        <keresztnev>Tamás</keresztnev>
+        <vezeteknev>Nyom</vezeteknev>
+        <becenev>Tomika</becenev>
+        <kor>22</kor>
+    </student>
+
+    <student id="03">
+        <keresztnev>Zoltán</keresztnev>
+        <vezeteknev>Fá</vezeteknev>
+        <becenev>Zolika</becenev>
+        <kor>23</kor>
+    </student>
+
+     <student id="04">
+        <keresztnev>Zsolt</keresztnev>
+        <vezeteknev>Mor</vezeteknev>
+        <becenev>Zsoltika</becenev>
+        <kor>24</kor>
+    </student>
+</class>
