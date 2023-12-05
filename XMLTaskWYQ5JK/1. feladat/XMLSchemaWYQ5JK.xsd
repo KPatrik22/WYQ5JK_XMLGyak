@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+	<!-- Elemek, tulajdonságok -->
+
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="megallo" type="xs:string" />
+	<xs:element name="csuklos" type="xs:boolean" />
+	<xs:element name="tipus" type="xs:string" />
+	<xs:element name="szuletesi_ido" type="datum_type" />
+	<xs:element name="eletkor" type="xs:integer" />
+	<xs:element name="mikor" type="datum_type" />
+	<xs:element name="kor" type="xs:integer" />
+	<xs:element name="rokoni_kapcsolat" type="xs:string" />
+
+	<xs:attribute name="t_cegjegyzekszam" type="xs:string" />
+	<xs:attribute name="mvk_cegjegyzekszam" type="xs:string" />
+	<xs:attribute name="sorozatszam" type="xs:integer" />
+	<xs:attribute name="szemelyi" type="xs:string" />
+	<xs:attribute name="nev" type="xs:string" />
+
+
+	<!-- Egyszerű típus -->
+
+	<xs:simpleType name="datum_type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])"></xs:pattern>
+		</xs:restriction>
+    	</xs:simpleType>
+
+	<!-- Komplex típusok -->
+
+	<xs:complexType name="teljes_nev_type">
+        	<xs:sequence>
+            		<xs:element name="vezeteknev" type="xs:string" />
+            		<xs:element name="keresztnev" type="xs:string" />
+        	</xs:sequence>
+    	</xs:complexType>	
+
+	<xs:complexType name="megallok_type">
+		<xs:sequence>
+			<xs:element ref="megallo" minOccurs="3" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tulajdonos_type">
+		<xs:sequence>
+			<xs:element ref="name" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute ref="t_cegjegyzekszam" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="mvk_type">
+		<xs:sequence>
+			<xs:element name="megallok" type="megallok_type"/>
+		</xs:sequence>
+		<xs:attribute ref="mvk_cegjegyzekszam" use="required"/>
+		<xs:attribute ref="t_cegjegyzekszam" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="busz_type">
+		<xs:sequence>
+			<xs:element ref="csuklos"/>
+			<xs:element ref="tipus"/>
+		</xs:sequence>
+		<xs:attribute ref="sorozatszam" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="sofor_type">
+		<xs:sequence>
+			<xs:element ref="szuletesi_ido"/>
+			<xs:element name="teljes_nev" type="teljes_nev_type" />
+			<xs:element ref="eletkor"/>
+		</xs:sequence>
+		<xs:attribute ref="szemelyi" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="csaladtag_type">
+		<xs:sequence>
+			<xs:element ref="kor"/>
+		</xs:sequence>
+		<xs:attribute ref="nev" use="required"/>
+	</xs:complexType>
+
+	<!-- Kapcsolótáblák -->
+
+	<xs:complexType name="vezet_type">
+		<xs:sequence>
+            		<xs:element ref="mikor"/>
+        	</xs:sequence>
+		<xs:attribute name="buszREF" type="xs:integer" use="required"/>
+		<xs:attribute name="soforREF" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="rokon_type">
+		<xs:sequence>
+			<xs:element ref="rokoni_kapcsolat"/>
+		</xs:sequence>
+		<xs:attribute name="soforREF" type="xs:string" use="required"/>
+		<xs:attribute name="csaladtagREF" type="xs:string" use="required"/>
+	</xs:complexType>
+
+
+
+	<xs:element name="WYQ5JK_MVK">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tulajdonos" type="tulajdonos_type" maxOccurs="1"/>
+				<xs:element name="mvk" type="mvk_type" maxOccurs="1"/>
+				<xs:element name="busz" type="busz_type" minOccurs="3" maxOccurs="unbounded"/>
+				<xs:element name="sofor" type="sofor_type" minOccurs="3" maxOccurs="unbounded"/>
+				<xs:element name="vezet" type="vezet_type" maxOccurs="unbounded"/>
+				<xs:element name="csaladtag" type="csaladtag_type" maxOccurs="unbounded"/>
+				<xs:element name="rokon" type="rokon_type" maxOccurs="unbounded"/>
+
+			</xs:sequence>
+		</xs:complexType>
+
+	<!-- Elsődleges kulcsok -->
+
+        <xs:unique name="t_cegjegyzekszam">
+            <xs:selector xpath="tulajdonos"/>
+            <xs:field xpath="@t_cegjegyzekszam"/>
+        </xs:unique>
+
+        <xs:unique name="mvk_cegjegyzekszam">
+            <xs:selector xpath="mvk"/>
+            <xs:field xpath="@mvk_cegjegyzekszam"/>
+        </xs:unique>
+
+        <xs:unique name="sorozatszam">
+            <xs:selector xpath="busz"/>
+            <xs:field xpath="@sorozatszam"/>
+        </xs:unique>
+
+        <xs:unique name="szemelyi">
+            <xs:selector xpath="sofor"/>
+            <xs:field xpath="@szemelyi"/>
+        </xs:unique>
+
+        <xs:unique name="nev">
+            <xs:selector xpath="csaladtag"/>
+            <xs:field xpath="@nev"/>
+        </xs:unique>
+	
+	<!-- Idegen kulcsok -->
+
+	<xs:keyref name="buszREF" refer="sorozatszam">
+		<xs:selector xpath="busz"></xs:selector>
+		<xs:field xpath="@buszREF"></xs:field>
+	</xs:keyref>
+
+	<xs:keyref name="soforREF" refer="szemelyi">
+		<xs:selector xpath="sofor"></xs:selector>
+		<xs:field xpath="@termekREF"></xs:field>
+	</xs:keyref>
+
+	<xs:keyref name="csaladtagREF" refer="nev">
+		<xs:selector xpath="csaladtag"></xs:selector>
+		<xs:field xpath="@termekREF"></xs:field>
+	</xs:keyref>
+
+	</xs:element>
+</xs:schema>

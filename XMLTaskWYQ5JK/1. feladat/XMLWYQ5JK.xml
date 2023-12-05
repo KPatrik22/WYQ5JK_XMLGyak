@@ -11,9 +11,11 @@
     <!-- MVK -->
 
     <mvk mvk_cegjegyzekszam="05-10-000147" t_cegjegyzekszam="05-10-000406">
-        <megallo>Egyetemváros</megallo>
-        <megallo>Centrum</megallo>
-	<megallo>Búza tér</megallo>
+        <megallok>
+		<megallo>Egyetemváros</megallo>
+        	<megallo>Centrum</megallo>
+		<megallo>Búza tér</megallo>
+	</megallok>
     </mvk>
 
 
@@ -66,15 +68,15 @@
 
     <!-- Vezet -->
 
-    <vezet sorozatszam="123" szemelyi="000002SA">
+    <vezet buszREF="123" soforREF="000002SA">
         <mikor>2023-11-13</mikor>
     </vezet>
 
-    <vezet sorozatszam="456" szemelyi="000003TA">
+    <vezet buszREF="456" soforREF="000003TA">
         <mikor>2023-11-17</mikor>
     </vezet>
 
-    <vezet sorozatszam="789" szemelyi="000001HE">
+    <vezet buszREF="789" soforREF="000001HE">
         <mikor>2023-11-15</mikor>
     </vezet>
 
@@ -96,15 +98,15 @@
 
     <!-- Rokon -->
 
-    <rokon szemelyi="000001HE" nev="Kovácsné Mária">
-        <rokoni_kapcsolat>feleség</rokoni_kapcsolat>
+    <rokon soforREF="000001HE" csaladtagREF="Kovácsné Mária">
+        <rokoni_kapcsolat>házastárs</rokoni_kapcsolat>
     </rokon>
 
-    <rokon szemelyi="000002SA" nev="Szabó Noémi">
+    <rokon soforREF="000002SA" csaladtagREF="Szabó Noémi">
         <rokoni_kapcsolat>gyermek</rokoni_kapcsolat>
     </rokon>
 
-    <rokon szemelyi="000003TA" nev="Tóth Géza">
+    <rokon soforREF="000003TA" csaladtagREF="Tóth Géza">
         <rokoni_kapcsolat>gyermek</rokoni_kapcsolat>
     </rokon>
 
