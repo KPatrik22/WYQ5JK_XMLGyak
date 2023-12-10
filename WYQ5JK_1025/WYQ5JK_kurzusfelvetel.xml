@@ -1,0 +1,28 @@
+<xml version="1.0" encoding="UTF-8"?>
+
+    <WYQ5JK_kurzusfelvetel tanev="23/24 I." egyetem="Miskolci Egyetem">
+    
+        <hallgato>
+            <hnev>Kolozsvári Patrik</hnev>
+            <szulev>2001-08-01</szulev>
+            <szak evf="4">Programtervező Informatikus</szak>
+        </hallgato>
+
+        <kurzusok>
+            <kurzus id="GEIAL332-B" jovahagyas="igen">
+                <kurzusnev>Adatkezelés XML-ben</kurzusnev>
+                <kredit>5</kredit>
+                <hely>XXXII A1</hely>
+                <idopont>Kedd 12-14</idopont>
+                <oktato>Dr. Bednarik László</oktato>
+            </kurzus>
+            <kurzus id="GEIAL315-B">
+                <kurzusnev>Vállalati Információs Rendszerek</kurzusnev>
+                <kredit>5</kredit>
+                <hely>In/101</hely>
+                <idopont>Szerda 14-16</idopont>
+                <oktato>Dr. Sasvári Péter</oktato>
+            </kurzus>
+        </kurzusok>
+        
+    </WYQ5JK_kurzusfelvetel>
