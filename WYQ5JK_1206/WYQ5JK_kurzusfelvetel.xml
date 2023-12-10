@@ -1,0 +1,36 @@
+<xml version="1.0" encoding="UTF-8"?>
+
+    <WYQ5JK_kurzusfelvetel>
+    
+        <hallgato>
+            <hnev>Kolozsvári Patrik</hnev>
+            <szulev>2001-08-01</szulev>
+            <szak evf="4">Programtervező Informatikus</szak>
+        </hallgato>
+
+        <kurzusok>
+            <kurzus>
+                <kurzusnev>Mesterséges intelligencia alapjai</kurzusnev>
+                <kredit>5</kredit>
+                <hely>XXXII.ea</hely>
+                <idopont>Kedd 10:00-11:30</idopont>
+                <oktato>Kunné Dr. Tamás Judit</oktato>
+		<oraado>Fazekas Levente Áron</oraado>
+            </kurzus>
+	    <kurzus>
+                <kurzusnev>Vállalati Információs Rendszerek</kurzusnev>
+                <kredit>5</kredit>
+                <hely>In. 103</hely>
+                <idopont>Szerda 14:00-15:30</idopont>
+                <oktato>Dr. Sasvári Péter</oktato>
+            </kurzus>
+	    <kurzus>
+                <kurzusnev>Adatkezelés XML-ben</kurzusnev>
+                <kredit>5</kredit>
+                <hely>XXXII. ea</hely>
+                <idopont>Kedd 12:00-13:30</idopont>
+                <oktato>Dr. Bednarik László</oktato>
+            </kurzus>
+        </kurzusok>
+        
+    </WYQ5JK_kurzusfelvetel>
