@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WYQ5JK_MVK xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation="XMLSchemaWYQ5JK.xsd">
+
+    <!-- Tulajdonos -->
+
+    <tulajdonos t_cegjegyzekszam="05-10-000406">
+        <name>Miskolc Holding Önkormányzati Vagyonkezelő Zrt.</name>
+    </tulajdonos>
+
+    <!-- MVK -->
+
+    <mvk mvk_cegjegyzekszam="05-10-000147" t_cegjegyzekszam="05-10-000406">
+        <megallok>
+		<megallo>Egyetemváros</megallo>
+        	<megallo>Centrum</megallo>
+		<megallo>Búza tér</megallo>
+	</megallok>
+    </mvk>
+
+
+    <!-- Busz -->
+
+    <busz sorozatszam="123">
+        <csuklos>true</csuklos>
+        <tipus>MAN Lion’s City GL A40 CNG</tipus>
+    </busz>
+
+    <busz sorozatszam="456">
+        <csuklos>false</csuklos>
+        <tipus>MAN Lion’s City A21 CNG</tipus>
+    </busz>
+
+    <busz sorozatszam="789">
+        <csuklos>true</csuklos>
+        <tipus>Neoplan N4522 Centroliner</tipus>
+    </busz>
+
+    <!-- Sofőr -->
+
+    <sofor szemelyi="000001HE">
+        <szuletesi_ido>1965-10-15</szuletesi_ido>
+	<teljes_nev>
+		<vezeteknev>Kovács</vezeteknev>
+		<keresztnev>Béla</keresztnev>
+	</teljes_nev>
+	<eletkor>58</eletkor>
+    </sofor>
+
+    <sofor szemelyi="000002SA">
+        <szuletesi_ido>1972-12-04</szuletesi_ido>
+	<teljes_nev>
+		<vezeteknev>Szabó</vezeteknev>
+		<keresztnev>Tamás</keresztnev>
+	</teljes_nev>
+	<eletkor>51</eletkor>
+    </sofor>
+
+    <sofor szemelyi="000003TA">
+        <szuletesi_ido>1971-04-29</szuletesi_ido>
+	<teljes_nev>
+		<vezeteknev>Tóth</vezeteknev>
+		<keresztnev>István</keresztnev>
+	</teljes_nev>
+	<eletkor>52</eletkor>
+    </sofor>
+
+
+    <!-- Vezet -->
+
+    <vezet buszREF="123" soforREF="000002SA">
+        <mikor>2023-11-13</mikor>
+    </vezet>
+
+    <vezet buszREF="456" soforREF="000003TA">
+        <mikor>2023-11-17</mikor>
+    </vezet>
+
+    <vezet buszREF="789" soforREF="000001HE">
+        <mikor>2023-11-15</mikor>
+    </vezet>
+
+
+    <!-- Családtag -->
+
+    <csaladtag nev="Kovácsné Mária">
+        <kor>55</kor>
+    </csaladtag>
+
+    <csaladtag nev="Szabó Noémi">
+        <kor>7</kor>
+    </csaladtag>
+
+    <csaladtag nev="Tóth Géza">
+        <kor>12</kor>
+    </csaladtag>
+
+
+    <!-- Rokon -->
+
+    <rokon soforREF="000001HE" csaladtagREF="Kovácsné Mária">
+        <rokoni_kapcsolat>házastárs</rokoni_kapcsolat>
+    </rokon>
+
+    <rokon soforREF="000002SA" csaladtagREF="Szabó Noémi">
+        <rokoni_kapcsolat>gyermek</rokoni_kapcsolat>
+    </rokon>
+
+    <rokon soforREF="000003TA" csaladtagREF="Tóth Géza">
+        <rokoni_kapcsolat>gyermek</rokoni_kapcsolat>
+    </rokon>
+
+
+</WYQ5JK_MVK>
