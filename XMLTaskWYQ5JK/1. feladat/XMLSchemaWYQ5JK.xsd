@@ -119,30 +119,30 @@
 
 	<!-- Elsődleges kulcsok -->
 
-        <xs:unique name="t_cegjegyzekszam">
+        <xs:key name="t_cegjegyzekszam">
             <xs:selector xpath="tulajdonos"/>
             <xs:field xpath="@t_cegjegyzekszam"/>
-        </xs:unique>
+        </xs:key>
 
-        <xs:unique name="mvk_cegjegyzekszam">
+        <xs:key name="mvk_cegjegyzekszam">
             <xs:selector xpath="mvk"/>
             <xs:field xpath="@mvk_cegjegyzekszam"/>
-        </xs:unique>
+        </xs:key>
 
-        <xs:unique name="sorozatszam">
+        <xs:key name="sorozatszam">
             <xs:selector xpath="busz"/>
             <xs:field xpath="@sorozatszam"/>
-        </xs:unique>
+        </xs:key>
 
-        <xs:unique name="szemelyi">
+        <xs:key name="szemelyi">
             <xs:selector xpath="sofor"/>
             <xs:field xpath="@szemelyi"/>
-        </xs:unique>
+        </xs:key>
 
-        <xs:unique name="nev">
+        <xs:key name="nev">
             <xs:selector xpath="csaladtag"/>
             <xs:field xpath="@nev"/>
-        </xs:unique>
+        </xs:key>
 	
 	<!-- Idegen kulcsok -->
 
