@@ -42,7 +42,7 @@ public class DOMQueryWYQ5JK {
     {
     	// Querying the data of the bus with serial number '789'
         String sorozatszam = "789";
-        NodeList buszList = doc.getElementsByTagName("borrower");
+        NodeList buszList = doc.getElementsByTagName("busz");
         for (int i = 0; i < buszList.getLength(); i++) {
             Element busz = (Element) buszList.item(i);
             if (busz.getAttribute("sorozatszam").equals(sorozatszam)) {
@@ -64,7 +64,7 @@ public class DOMQueryWYQ5JK {
         System.out.println("3, Drivers who are at least 52 years old:");
         for (int i = 0; i < soforList.getLength(); i++) {
             Element sofor = (Element) soforList.item(i);
-            int age = Integer.parseInt(sofor.getElementsByTagName("age").item(0).getTextContent());
+            int age = Integer.parseInt(sofor.getElementsByTagName("eletkor").item(0).getTextContent());
 
             if (age >= 52) {
                 String vezeteknev = sofor.getElementsByTagName("vezeteknev").item(0).getTextContent();
@@ -77,7 +77,7 @@ public class DOMQueryWYQ5JK {
     
     private static void fourthQuery(Document doc)
     {
-    	// Querying the type of the bus dtiven by Szabó Tamás
+    	// Querying the type of the bus driven by Szabó Tamás
         String sofornev = "Szabó Tamás";
 
         NodeList soforList = doc.getElementsByTagName("sofor");
@@ -91,17 +91,17 @@ public class DOMQueryWYQ5JK {
                 String szemelyi = sofor.getAttribute("szemelyi");
 
                 NodeList vezetList = doc.getElementsByTagName("vezet");
-                System.out.println("5, Type of the bus driven by " + sofornev + ": ");
+                System.out.println("4, Type of the bus driven by " + sofornev + ": ");
                 for (int j = 0; j < vezetList.getLength(); j++) {
                     Element vezet = (Element) vezetList.item(j);
-                    if (vezet.getAttribute("szemelyi").equals(szemelyi)) {
-                        String sorozatszam = vezet.getAttribute("sorozatszam");
+                    if (vezet.getAttribute("soforREF").equals(szemelyi)) {
+                        String sorozatszam = vezet.getAttribute("buszREF");
 
                         NodeList buszList = doc.getElementsByTagName("busz");
                         for (int k = 0; k < buszList.getLength(); k++) {
-                            Element book = (Element) buszList.item(k);
-                            if (book.getAttribute("sorozatszam").equals(sorozatszam)) {
-                                String tipus = book.getElementsByTagName("tipus").item(0).getTextContent();
+                            Element busz = (Element) buszList.item(k);
+                            if (busz.getAttribute("sorozatszam").equals(sorozatszam)) {
+                                String tipus = busz.getElementsByTagName("tipus").item(0).getTextContent();
                                 System.out.println(tipus);
                             }
                         }

@@ -8,9 +8,9 @@
 	<xs:element name="megallo" type="xs:string" />
 	<xs:element name="csuklos" type="xs:boolean" />
 	<xs:element name="tipus" type="xs:string" />
-	<xs:element name="szuletesi_ido" type="datum_type" />
+	<xs:element name="szuletesi_ido" type="datumType" />
 	<xs:element name="eletkor" type="xs:integer" />
-	<xs:element name="mikor" type="datum_type" />
+	<xs:element name="mikor" type="datumType" />
 	<xs:element name="kor" type="xs:integer" />
 	<xs:element name="rokoni_kapcsolat" type="xs:string" />
 
@@ -23,7 +23,7 @@
 
 	<!-- Egyszerű típus -->
 
-	<xs:simpleType name="datum_type">
+	<xs:simpleType name="datumType">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])"></xs:pattern>
 		</xs:restriction>
@@ -31,35 +31,35 @@
 
 	<!-- Komplex típusok -->
 
-	<xs:complexType name="teljes_nev_type">
+	<xs:complexType name="teljes_nevType">
         	<xs:sequence>
             		<xs:element name="vezeteknev" type="xs:string" />
             		<xs:element name="keresztnev" type="xs:string" />
         	</xs:sequence>
     	</xs:complexType>	
 
-	<xs:complexType name="megallok_type">
+	<xs:complexType name="megallokType">
 		<xs:sequence>
 			<xs:element ref="megallo" minOccurs="3" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="tulajdonos_type">
+	<xs:complexType name="tulajdonosType">
 		<xs:sequence>
 			<xs:element ref="name" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute ref="t_cegjegyzekszam" use="required"/>
 	</xs:complexType>
 
-	<xs:complexType name="mvk_type">
+	<xs:complexType name="mvkType">
 		<xs:sequence>
-			<xs:element name="megallok" type="megallok_type"/>
+			<xs:element name="megallok" type="megallokType"/>
 		</xs:sequence>
 		<xs:attribute ref="mvk_cegjegyzekszam" use="required"/>
 		<xs:attribute ref="t_cegjegyzekszam" use="required"/>
 	</xs:complexType>
 
-	<xs:complexType name="busz_type">
+	<xs:complexType name="buszType">
 		<xs:sequence>
 			<xs:element ref="csuklos"/>
 			<xs:element ref="tipus"/>
@@ -67,16 +67,16 @@
 		<xs:attribute ref="sorozatszam" use="required"/>
 	</xs:complexType>
 
-	<xs:complexType name="sofor_type">
+	<xs:complexType name="soforType">
 		<xs:sequence>
 			<xs:element ref="szuletesi_ido"/>
-			<xs:element name="teljes_nev" type="teljes_nev_type" />
+			<xs:element name="teljes_nev" type="teljes_nevType" />
 			<xs:element ref="eletkor"/>
 		</xs:sequence>
 		<xs:attribute ref="szemelyi" use="required"/>
 	</xs:complexType>
 
-	<xs:complexType name="csaladtag_type">
+	<xs:complexType name="csaladtagType">
 		<xs:sequence>
 			<xs:element ref="kor"/>
 		</xs:sequence>
@@ -85,7 +85,7 @@
 
 	<!-- Kapcsolótáblák -->
 
-	<xs:complexType name="vezet_type">
+	<xs:complexType name="vezetType">
 		<xs:sequence>
             		<xs:element ref="mikor"/>
         	</xs:sequence>
@@ -93,7 +93,7 @@
 		<xs:attribute name="soforREF" type="xs:string" use="required"/>
 	</xs:complexType>
 
-	<xs:complexType name="rokon_type">
+	<xs:complexType name="rokonType">
 		<xs:sequence>
 			<xs:element ref="rokoni_kapcsolat"/>
 		</xs:sequence>
@@ -106,13 +106,13 @@
 	<xs:element name="WYQ5JK_MVK">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="tulajdonos" type="tulajdonos_type" maxOccurs="1"/>
-				<xs:element name="mvk" type="mvk_type" maxOccurs="1"/>
-				<xs:element name="busz" type="busz_type" minOccurs="3" maxOccurs="unbounded"/>
-				<xs:element name="sofor" type="sofor_type" minOccurs="3" maxOccurs="unbounded"/>
-				<xs:element name="vezet" type="vezet_type" maxOccurs="unbounded"/>
-				<xs:element name="csaladtag" type="csaladtag_type" maxOccurs="unbounded"/>
-				<xs:element name="rokon" type="rokon_type" maxOccurs="unbounded"/>
+				<xs:element name="tulajdonos" type="tulajdonosType" maxOccurs="1"/>
+				<xs:element name="mvk" type="mvkType" maxOccurs="1"/>
+				<xs:element name="busz" type="buszType" minOccurs="3" maxOccurs="unbounded"/>
+				<xs:element name="sofor" type="soforType" minOccurs="3" maxOccurs="unbounded"/>
+				<xs:element name="vezet" type="vezetType" maxOccurs="unbounded"/>
+				<xs:element name="csaladtag" type="csaladtagType" maxOccurs="unbounded"/>
+				<xs:element name="rokon" type="rokonType" maxOccurs="unbounded"/>
 
 			</xs:sequence>
 		</xs:complexType>
